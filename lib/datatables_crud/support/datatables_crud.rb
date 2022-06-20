@@ -105,7 +105,7 @@ module DatatablesCRUD
     end
 
     def namespace
-      self.parent.name.underscore unless self.parent == Object
+      self.module_parent.name.underscore unless self.module_parent == Object
     end
 
     def namespaced_controller_name
