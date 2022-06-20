@@ -188,7 +188,7 @@ module DatatablesCRUD
 
         authorize! :update, object
 
-        if object.update_attributes permitted_params
+        if object.update permitted_params
           redirect_to return_path, :notice => t("#{object_name}.notifications.updated", :default => t('common.notifications.updated'))
         else
           render :edit
