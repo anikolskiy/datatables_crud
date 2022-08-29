@@ -14,9 +14,9 @@ end
 module DatatablesCRUD
   class Railtie < ::Rails::Railtie
     configure do
-      ActiveSupport::Dependencies.autoload_paths << "#{__dir__}/datatables_crud/controllers"
-      ActiveSupport::Dependencies.autoload_paths << "#{__dir__}/datatables_crud/datatables"
-      ActiveSupport::Dependencies.autoload_paths << "#{__dir__}/datatables_crud/support"
+      %w(controllers datatables support).each do |d|
+        ActiveSupport::Dependencies.autoload_paths << "#{__dir__}/datatables_crud/#{d}"
+      end
     end
   end
 end
